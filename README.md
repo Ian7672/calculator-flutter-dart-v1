@@ -3,6 +3,11 @@
 ## Application Description  
 Flutter Dart Calculator v1 is a simple calculator application built with Flutter that supports basic operations *(+ , - , * , /)*. In addition to the calculator feature, this app also includes a user profile information page.  
 
+## Screenshots  
+
+### 1. Kalkulator Page  
+![Kalkulator Page](assets/Screenshot_20250320-202103_Calculator.png)
+
 ## Software Used  
 - *Flutter* (Latest version)  
 - *Dart* (Latest version)  
