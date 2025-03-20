@@ -1,16 +1,34 @@
-# kal
+# Kalkulator Flutter Dart v1
 
-A new Flutter project.
+## Deskripsi Aplikasi
+Kalkulator Flutter Dart v1 adalah aplikasi kalkulator sederhana berbasis Flutter yang mendukung operasi dasar *(+ , - , * , /)*. Selain fitur kalkulator, aplikasi ini juga memiliki halaman informasi profil pengguna.
 
-## Getting Started
+## Software yang Digunakan
+- *Flutter* (Versi terbaru)
+- *Dart* (Versi terbaru)
+- *Android Studio / VS Code* (Editor)
+- *Git* (Untuk manajemen versi)
 
-This project is a starting point for a Flutter application.
+## Cara Instalasi
+1. Pastikan Flutter sudah terinstall di perangkat kamu. Jika belum, ikuti panduan di: [Flutter Install Guide](https://docs.flutter.dev/get-started/install)
+2. Clone repository ini dengan perintah:
+   ```sh
+   git clone https://github.com/Ian7672/calculator-flutter-dart-v1.git
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+   # Flutter Dart Calculator v1  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Application Description  
+Flutter Dart Calculator v1 is a simple calculator application built with Flutter that supports basic operations *(+ , - , * , /)*. In addition to the calculator feature, this app also includes a user profile information page.  
+
+## Software Used  
+- *Flutter* (Latest version)  
+- *Dart* (Latest version)  
+- *Android Studio / VS Code* (Editor)  
+- *Git* (For version control)  
+
+## Installation Guide  
+1. Make sure Flutter is installed on your device. If not, follow the guide here: [Flutter Install Guide](https://docs.flutter.dev/get-started/install)  
+2. Clone this repository by running:  
+   ```sh
+   git clone https://github.com/Ian7672/calculator-flutter-dart-v1.git
