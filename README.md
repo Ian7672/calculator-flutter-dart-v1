@@ -35,7 +35,7 @@ This application consists of four main features:
 <img src="assets/Screenshot_20250320-202527_Calculator.png" width="100">
 
 ### 3. Profile Page  
-<img src="assets/Screenshot_20250320-202622_Calculator.png" width="100">
+<img src="assets/Screenshot_20250320-202622_Calculator.png" width="100">
 
 ### 4. History Page  
 <img src="assets/Screenshot_20250320-202701_Calculator.png" width="100">
