@@ -38,9 +38,6 @@ This application consists of four main features:
     <td><img src="assets/Screenshot_20250320-202103_Calculator.png" width="150"></td>
     <td><img src="assets/Screenshot_20250320-202527_Calculator.png" width="150"></td>
   </tr>
-</table>
-
-<table>
   <tr>
     <td align="center"><b>Profile Page</b></td>
     <td align="center"><b>History Page</b></td>
