@@ -28,17 +28,28 @@ This application consists of four main features:
 - Both themes ensure a seamless user experience.
 
 ## Screenshots  
-### 1. Light Page  
-<img src="assets/Screenshot_20250320-202103_Calculator.png" width="100">  
 
-### 2. Dark Page  
-<img src="assets/Screenshot_20250320-202527_Calculator.png" width="100">
+<table>
+  <tr>
+    <td align="center"><b>Light Page</b></td>
+    <td align="center"><b>Dark Page</b></td>
+  </tr>
+  <tr>
+    <td><img src="assets/Screenshot_20250320-202103_Calculator.png" width="150"></td>
+    <td><img src="assets/Screenshot_20250320-202527_Calculator.png" width="150"></td>
+  </tr>
+</table>
 
-### 3. Profile Page  
-<img src="assets/Screenshot_20250320-202622_Calculator.png" width="100">
-
-### 4. History Page  
-<img src="assets/Screenshot_20250320-202701_Calculator.png" width="100">
+<table>
+  <tr>
+    <td align="center"><b>Profile Page</b></td>
+    <td align="center"><b>History Page</b></td>
+  </tr>
+  <tr>
+    <td><img src="assets/Screenshot_20250320-202622_Calculator.png" width="150"></td>
+    <td><img src="assets/Screenshot_20250320-202701_Calculator.png" width="150"></td>
+  </tr>
+</table>
 
 ## Software Used  
 - *Flutter* (Latest version)  
