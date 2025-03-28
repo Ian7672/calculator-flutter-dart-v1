@@ -37,16 +37,16 @@ This application consists of four main features:
     <td align="center"><b>History Page</b></td>
   </tr>
   <tr>
-    <td><img src="assets/Screenshot_20250320-202103_Calculator.png" width="150"></td>
-    <td><img src="assets/Screenshot_20250320-202527_Calculator.png" width="150"></td>
-    <td><img src="assets/Screenshot_20250320-202622_Calculator.png" width="150"></td>
-    <td><img src="assets/Screenshot_20250320-202701_Calculator.png" width="150"></td>
+    <td><img src="assets/light.jpg" width="150"></td>
+    <td><img src="assets/dark.jpg" width="150"></td>
+    <td><img src="assets/profile.jpg" width="150"></td>
+    <td><img src="assets/history.jpg" width="150"></td>
   </tr>
 </table>
 
 ## Software Used  
-- *Flutter* (Latest version)  
-- *Dart* (Latest version)  
+- *Flutter* (v3.29.0)  
+- *Dart* (v3.7.0)  
 - *Android Studio / VS Code* (Editor)  
 - *Git* (For version control)  
 
@@ -55,3 +55,7 @@ This application consists of four main features:
 2. Clone this repository by running:  
    ```sh
    git clone https://github.com/Ian7672/calculator-flutter-dart-v1.git
+   cd calculator-flutter-dart-v1
+
+## License
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
