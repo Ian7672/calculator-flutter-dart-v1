@@ -6,6 +6,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,13 +19,15 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key}); // Menambahkan parameter key
+
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   String _output = "0";
-  List<String> _history = []; // Menyimpan riwayat kalkulasi
+  final List<String> _history = []; // Menyimpan riwayat kalkulasi
 
   void _buttonPressed(String buttonText) {
     setState(() {
@@ -149,12 +152,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildButton(String buttonText) {
     return ElevatedButton(
       onPressed: () => _buttonPressed(buttonText),
+      
+      style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      ),
       child: Text(
         buttonText,
         style: TextStyle(fontSize: 24),
-      ),
-      style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20 ),
       ),
     );
   }
@@ -163,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
 class HistoryScreen extends StatelessWidget {
   final List<String> history;
 
-  HistoryScreen({required this.history});
+  const HistoryScreen({super.key, required this.history});
 
   @override
   Widget build(BuildContext context) {
@@ -184,6 +188,8 @@ class HistoryScreen extends StatelessWidget {
 }
 
 class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key}); // Menambahkan parameter key
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

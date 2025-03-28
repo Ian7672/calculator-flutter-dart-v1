@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:expressions/expressions.dart'; // Pastikan untuk menambahkan dependensi ini di pubspec.yaml
+import 'package:flutter/services.dart'; // Impor untuk Clipboard
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
   @override
-  _MyAppState createState() => _MyAppState();
+  MyAppState createState() => MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State<MyApp> {
   // Menyimpan status tema
   bool _isDarkMode = false;
 
@@ -18,6 +20,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Kalkulator',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: _isDarkMode ? ThemeMode.dark : ThemeMode.light, // Mengatur tema berdasarkan status
@@ -37,16 +40,16 @@ class HomeScreen extends StatefulWidget {
   final bool isDarkMode;
   final ValueChanged<bool> onThemeChanged;
 
-  HomeScreen({required this.isDarkMode, required this.onThemeChanged});
+  const HomeScreen({super.key, required this.isDarkMode, required this.onThemeChanged});
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   String _output = "0";
   String _liveResult = ""; // Menyimpan hasil sementara
-  List<String> _history = []; // Menyimpan riwayat kalkulasi
+  final List<String> _history = []; // Menyimpan riwayat kalkulasi
 
   void _buttonPressed(String buttonText) {
     setState(() {
@@ -59,6 +62,8 @@ class _HomeScreenState extends State<HomeScreen> {
         } else {
           _output = "0";
         }
+        _liveResult = _calculateResult();
+
       } else if (buttonText == "=") {
         if (_isValidExpression(_output)) {
           String result = _calculateResult();
@@ -68,18 +73,35 @@ class _HomeScreenState extends State<HomeScreen> {
           _output = result; // Tetap menampilkan hasil (atau kosong jika error)
           _liveResult = ""; // Reset live result setelah menghitung
         } else {
-          _liveResult = "Ekspresi tidak valid"; // Tampilkan pesan kesalahan
+          _liveResult = ""; // Tidak menampilkan pesan kesalahan
         }
       } else {
         // Izinkan tanda negatif di depan
         if (_output == "0" && buttonText == "-") {
           _output = "-"; // Ganti "0" dengan "-"
-        } else if (_output == "0" && buttonText != "-") {
-          // Hapus "0" jika tombol yang ditekan bukan "-"
-          _output = buttonText;
+        } else if (_output == "0" && (buttonText == "+" || buttonText == "/" || buttonText == "*")) {
+          // jika tombol yang ditekan bukan "-"
+          return; // Tidak melakukan apa-apa
+        } else if (_output == "-" && (buttonText == "+" || buttonText == "/" || buttonText == "*" || buttonText == ".")) {
+          // Jika output hanya berisi "-", tidak izinkan operator lain
+          if (_isOperator(buttonText)) {
+            return; // Tidak melakukan apa-apa
+          }
         } else if (_isLastCharacterOperator(_output) && _isOperator(buttonText)) {
-          // Jika karakter terakhir adalah operator dan tombol yang ditekan juga operator, ganti operator
-          _output = _output.substring(0, _output.length - 1) + buttonText;
+          // Jika karakter terakhir adalah operator dan tombol yang ditekan juga operator, tidak melakukan apa-apa
+          return; // Tidak melakukan apa-apa
+        } else if (_isLastCharacterOperator(")") && buttonText == "(") {
+          return; // Tidak melakukan apa-apa
+          } else if (_isLastCharacterOperator(".") && _isOperator(buttonText)) {
+          return; // Tidak melakukan apa-apa
+        } else if (buttonText == ".") {
+          // Cek jika titik sudah ada dalam angka terakhir
+          if (!_output.endsWith(".") && !_isLastCharacterOperator(_output)) {
+            String lastNumber = _getLastNumber(_output);
+            if (!lastNumber.contains(".")) {
+              _output += buttonText;
+            }
+          }
         } else {
           // Hapus angka nol di depan jika ada
           if (_output.startsWith("0") && _output.length > 1 && buttonText != "." && buttonText != "-") {
@@ -90,6 +112,13 @@ class _HomeScreenState extends State<HomeScreen> {
         _liveResult = _calculateResult(); // Update live result saat mengetik
       }
     });
+  }
+
+  String _getLastNumber(String expression) {
+    // Mengambil angka terakhir dari ekspresi
+    final regex = RegExp(r'(\d+(\.\d+)?)$');
+    final match = regex.firstMatch(expression);
+    return match != null ? match.group(0) ?? "" : "";
   }
 
   bool _isLastCharacterOperator(String output) {
@@ -135,6 +164,13 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  void _copyToClipboard(String text) {
+    Clipboard.setData(ClipboardData(text: text));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Teks disalin: $text')),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -169,23 +205,39 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-            alignment: Alignment.centerRight,
-            child: Text(
-              _output,
-              style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+          Expanded(
+            child: SingleChildScrollView(
+              reverse: true, // Agar scroll ke atas
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      _copyToClipboard(_output); // Menyalin teks saat diketuk
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        _output,
+                        style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  // Menampilkan live result di bawah output
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      _liveResult,
+                      style: TextStyle(fontSize: 24, color: Colors.grey),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-          // Menampilkan live result di bawah output
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            alignment: Alignment.centerRight,
-            child: Text(
-              _liveResult,
-              style: TextStyle(fontSize: 24, color: Colors.grey),
-            ),
-          ),
+          SizedBox(height: 20), // Menambahkan jarak antara layar dan tombol
           // Menggunakan Expanded untuk membuat tombol memenuhi ruang
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -247,11 +299,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
     // Menentukan warna tombol berdasarkan mode dan jenis tombol
     if (isNumber || isDot || isParenthesis) {
-      buttonColor = widget.isDarkMode ? Colors.white.withOpacity(0.2) : Colors.black; // Warna tombol angka, titik, dan kurung
+      buttonColor = widget.isDarkMode 
+    ? Colors.white.withAlpha((0.2 * 255).toInt()) 
+    : Colors.black; // Warna tombol angka, titik, dan kurung
     } else if (isEqual) {
       buttonColor = Colors.green; // Warna tombol sama dengan
     } else if (isOperator) {
-      buttonColor = Colors.blueAccent.withOpacity(0.8); // Warna tombol operator
+      buttonColor = Colors.blueAccent.withAlpha((0.8 * 255).toInt()); // Warna tombol operator
     } else {
       buttonColor = (Colors.grey[300] ?? Colors.grey); // Warna default
     }
@@ -264,17 +318,18 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: ElevatedButton(
         onPressed: () => _buttonPressed(buttonText.isEmpty ? "DEL" : buttonText), // Menggunakan "DEL" jika tombol kosong
+              style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.symmetric(vertical: 20),
+          backgroundColor: Colors.transparent, // Menggunakan transparan untuk efek akrilik
+          shadowColor: Colors.transparent, // Menghilangkan bayangan default
+        ),
         child: icon != null 
             ? Icon(icon, size: 24, color: Colors.black) // Menampilkan ikon backspace
             : Text(
                 buttonText,
                 style: TextStyle(fontSize: 24, color: Colors.white), // Warna teks
               ),
-        style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.symmetric(vertical: 20),
-          backgroundColor: Colors.transparent, // Menggunakan transparan untuk efek akrilik
-          shadowColor: Colors.transparent, // Menghilangkan bayangan default
-        ),
+
       ),
     );
   }
@@ -283,7 +338,7 @@ class _HomeScreenState extends State<HomeScreen> {
 class HistoryScreen extends StatelessWidget {
   final List<String> history;
 
-  HistoryScreen({required this.history});
+  const HistoryScreen({super.key, required this.history});
 
   @override
   Widget build(BuildContext context) {
@@ -307,6 +362,7 @@ class HistoryScreen extends StatelessWidget {
 }
 
 class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
