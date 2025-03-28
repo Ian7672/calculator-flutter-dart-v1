@@ -14,17 +14,14 @@ This application consists of four main features:
 
 ### 2. *Profil*  
 - Displays user profile information, such as *name, email, and profile picture*.  
-- Allows users to *edit their profile* directly within the app.  
 - Provides application version details and developer credits.  
 
 ### 3. *History*  
 - Keeps a *record of previous calculations* for user reference.  
-- Allows users to clear history if needed.  
 - Displays past calculations in an easy-to-read format.  
 
 ### 4. *Dark Mode & Light Mode*  
 - Users can switch between *Dark Mode and Light Mode* for better visual comfort.  
-- The theme selection is automatically saved for future sessions.  
 - Both themes ensure a seamless user experience.
 
 ## Screenshots  
