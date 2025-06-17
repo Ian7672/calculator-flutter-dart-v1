@@ -1,30 +1,27 @@
 # Flutter Dart Calculator v1  
 
-## Application Description  
-Flutter Dart Calculator v1 is a simple calculator application built with Flutter that supports basic operations *(+ , - , * , /)*. In addition to the calculator feature, this app also includes a user profile information page.  
+A simple yet functional calculator app built with Flutter, featuring basic arithmetic operations, user profile, calculation history, and theme switching.  
 
-## Application Features  
+## 📱 Application Features  
 
-This application consists of four main features:  
+### 1. **Calculator**  
+- Supports basic operations: **Addition (+), Subtraction (-), Multiplication (*), Division (/)**  
+- Real-time calculation display  
+- Clean and intuitive UI  
 
-### 1. *Kalkulator*  
-- A functional calculator that supports *addition (+), subtraction (-), multiplication (), and division (/).  
-- Simple and user-friendly interface.  
-- Supports real-time calculations without requiring additional confirmation.  
+### 2. **Profile**  
+- Displays user details: **Name, Email, Profile Picture**  
+- Shows app version and developer info  
 
-### 2. *Profil*  
-- Displays user profile information, such as *name, email, and profile picture*.  
-- Provides application version details and developer credits.  
+### 3. **History**  
+- Logs past calculations for easy reference  
+- Organized list view for better readability  
 
-### 3. *History*  
-- Keeps a *record of previous calculations* for user reference.  
-- Displays past calculations in an easy-to-read format.  
+### 4. **Dark Mode & Light Mode**  
+- Toggle between themes for comfortable viewing  
+- Consistent design in both modes  
 
-### 4. *Dark Mode & Light Mode*  
-- Users can switch between *Dark Mode and Light Mode* for better visual comfort.  
-- Both themes ensure a seamless user experience.
-
-## Screenshots  
+## 📸 Screenshots  
 
 <table>
   <tr>
@@ -34,38 +31,38 @@ This application consists of four main features:
     <td align="center"><b>History Page</b></td>
   </tr>
   <tr>
-    <td><img src="light" width="150"></td>
-    <td><img src="dark" width="150"></td>
-    <td><img src="profile" width="150"></td>
-    <td><img src="history" width="150"></td>
+    <td><img src="![light](https://github.com/user-attachments/assets/d345f5dd-51d9-4254-8c3e-3d065548f286)" width="150"></td>
+    <td><img src="![dark](https://github.com/user-attachments/assets/2256311c-a20a-443a-9d8b-625f253ad622)" width="150"></td>
+    <td><img src="![profile](https://github.com/user-attachments/assets/3c373f5d-6098-4b8b-8a09-bcb156f3ad07)"width="150"></td>
+    <td><img src="![history](https://github.com/user-attachments/assets/7d61e7aa-2e49-4e04-96a0-97c5e202af18)" width="150"></td>
   </tr>
 </table>
 
-## Software Used  
-- *Flutter* (v3.29.0)  
-- *Dart* (v3.7.0)  
-- *Android Studio / VS Code* (Editor)  
-- *Git* (For version control)  
+## ⚙️ Tech Stack  
+- **Flutter** (v3.29.0)  
+- **Dart** (v3.7.0)  
+- **Android Studio / VS Code** (Development)  
+- **Git** (Version Control)  
 
-## Installation Guide  
-1. Make sure Flutter is installed on your device. If not, follow the guide here: [Flutter Install Guide](https://docs.flutter.dev/get-started/install)  
-2. Clone this repository by running:  
+## 🛠️ Installation  
+1. Ensure Flutter is installed ([Installation Guide](https://docs.flutter.dev/get-started/install)).  
+2. Clone the repo:  
    ```sh
    git clone https://github.com/Ian7672/calculator-flutter-dart-v1.git
    cd calculator-flutter-dart-v1
+   flutter pub get
+   flutter run
+   ```
 
-## Kontribusi
+## 🤝 Contributing  
+Pull requests are welcome! For major changes, open an issue first to discuss proposed updates.  
 
-Pull request dipersilakan. Untuk perubahan besar, buka issue terlebih dahulu untuk mendiskusikan apa yang ingin Anda ubah.
+## 📲 Live Demo  
+[Link Demo App]()
 
-## Demo Aplikasi
+## 👨‍💻 Developer  
+**Ian7672**  
+- GitHub: [github.com/Ian7672](https://github.com/Ian7672)  
 
-[Link Demo Aplikasi]()
-
-## 👨‍💻 Developer
-
-Dikembangkan oleh **Ian7672** - [GitHub Profile](https://github.com/Ian7672)
-
----
-
-© 2025 calculator-flutter-dart-v1. All rights reserved.
+---  
+© 2025 | calculator-flutter-dart-v1 | MIT License  
