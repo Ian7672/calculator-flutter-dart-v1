@@ -31,10 +31,10 @@ A simple yet functional calculator app built with Flutter, featuring basic arith
     <td align="center"><b>History Page</b></td>
   </tr>
   <tr>
-    <td><img src="![light](https://github.com/user-attachments/assets/d345f5dd-51d9-4254-8c3e-3d065548f286)" width="150"></td>
-    <td><img src="![dark](https://github.com/user-attachments/assets/2256311c-a20a-443a-9d8b-625f253ad622)" width="150"></td>
-    <td><img src="![profile](https://github.com/user-attachments/assets/3c373f5d-6098-4b8b-8a09-bcb156f3ad07)"width="150"></td>
-    <td><img src="![history](https://github.com/user-attachments/assets/7d61e7aa-2e49-4e04-96a0-97c5e202af18)" width="150"></td>
+    <td><img src="![light](https://github.com/user-attachments/assets/776a3d33-118d-4551-938d-9dc72911cd76)" width="150"></td>
+    <td><img src="![dark](https://github.com/user-attachments/assets/184adcfb-b9f9-4a3f-839d-48cf20dd2e28)" width="150"></td>
+    <td><img src="![profile](https://github.com/user-attachments/assets/d56aa1fb-f1d5-4b63-9258-4967e4bb6aef)" width="150"></td>
+    <td><img src="![history](https://github.com/user-attachments/assets/52032f88-5206-4bd4-8029-765660219073)" width="150"></td>
   </tr>
 </table>
 
