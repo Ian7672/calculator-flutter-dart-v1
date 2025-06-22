@@ -37,9 +37,6 @@ A simple yet functional calculator app built with Flutter, featuring basic arith
    flutter run
    ```
 
-## 🤝 Contributing  
-Pull requests are welcome! For major changes, open an issue first to discuss proposed updates.  
-
 ## 📲 Live Demo  
 [Link Demo App](https://github.com/user-attachments/assets/d9a8e694-a4e4-495c-9dab-15fbbcbfbcf4)
 
